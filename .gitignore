@@ -1,7 +1,11 @@
-classes
-lib
+*.class
+*.jar
+*.war
+*.ear
+.settings
 target
-.git
 .classpath
 .project
-.settings
+.gitignore
+classes
+lib
