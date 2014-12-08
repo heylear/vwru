@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN" "http://tuckey.org/res/dtds/urlrewrite3.1.dtd">
+
+<urlrewrite>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/m/)(\w+)(?:/p/)(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1!$3.action?param=$4</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/m/)(\w+)(?:/p/)(\w+)/(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1!$3.action?param=$4&amp;param=$5</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/m/)(\w+)(?:/p/)(\w+)/(\w+)/(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1!$3.action?param=$4&amp;param=$5&amp;param=$6</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/m/)(\w+)(?:/p/)(\w+)/(\w+)/(\w+)/(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1!$3.action?param=$4&amp;param=$5&amp;param=$6&amp;param=$7</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/p/)(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1.action?param=$3</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/p/)(\w+)/(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1.action?param=$3&amp;param=$4</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/p/)(\w+)/(\w+)/(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1.action?param=$3&amp;param=$4&amp;param=$5</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/p/)(\w+)/(\w+)/(\w+)/(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1.action?param=$3&amp;param=$4&amp;param=$5&amp;param=$6</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)(?:/m/)(\w+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1!$3.action</to>
+	</rule>
+	<rule>
+		<from>^((/[\w!]+)+)[/]*(\?[^\?]*)*(#[^#]*)*$</from>
+		<to type="forward">$1.action</to>
+	</rule>
+</urlrewrite>

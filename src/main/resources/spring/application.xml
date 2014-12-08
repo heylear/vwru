@@ -33,14 +33,15 @@
 		<property name="jndiName" value="${jndi}"/>
 	</bean>
 	
-	<bean id="dataLoader" class="com.fzy.core.DataLoader">
+	<!-- <bean id="dataLoader" class="com.fzy.core.DataLoader">
 		<property name="dataSource" ref="dataSource"/>
  		<property name="scripts">
 			<list>
  				<value>classpath:sql/init-data.sql</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
+	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
@@ -107,5 +108,5 @@
 		</property>
 	</bean>
 	
-	<bean class="com.fzy.core.SpringContextHolder" lazy-init="false" />
+	<bean class="com.myallways.vwru2.core.SpringHolder" lazy-init="false" />
 </beans>

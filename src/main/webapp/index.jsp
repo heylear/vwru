@@ -1,5 +1,8 @@
+<!doctype html>
 <html>
+<head>
+<meta http-equiv="Refresh" content="0;url=console/dashboard" />
+</head>
 <body>
-<h2>Hello World!</h2>
 </body>
 </html>

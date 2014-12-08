@@ -1,0 +1,14 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+
+	<include file="webwork-default.xml" />
+	<include file="config-browser.xml" />
+	
+	<package name="default" namespace="/console" extends="webwork-default">
+		<action name="dashboard" class="dashboard">
+			<result name="success" type="dispatcher">/WEB-INF/jsp/dashboard/index.jsp</result>
+		</action>
+	</package>
+	
+</xwork>

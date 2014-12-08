@@ -23,6 +23,7 @@
 		<maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
 
 		<!-- JavaEE/SE APIs properties -->
+		<javax.servlet.api.version>2.3</javax.servlet.api.version>
 		<javax.servlet.jstl.version>1.0.6</javax.servlet.jstl.version>
 		<javax.servlet.jsp.version>2.0</javax.servlet.jsp.version>
 		<javax.transaction.version>1.1</javax.transaction.version>
@@ -459,7 +460,21 @@
 			<artifactId>mail</artifactId>
 			<version>1.4</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.tuckey</groupId>
+			<artifactId>urlrewrite</artifactId>
+			<version>2.5.2</version>
+		</dependency>
+		<dependency>
+			<artifactId>servlet-api</artifactId>
+			<groupId>javax.servlet</groupId>
+			<version>${javax.servlet.api.version}</version>
+		</dependency>
+		<dependency>
+			<artifactId>jsp-api</artifactId>
+			<groupId>javax.servlet</groupId>
+			<version>${javax.servlet.jsp.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all-jdk14</artifactId>
@@ -500,13 +515,13 @@
 				<version>${maven.dependency.plugin.version}</version>
 				<executions>
 					<execution>
-						<phase>install</phase>  
-                        <goals>  
-                            <goal>copy-dependencies</goal>  
-                        </goals>
-						<configuration>  
-                            <outputDirectory>src/main/webapp/WEB-INF/lib</outputDirectory>  
-                        </configuration>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/webapp/WEB-INF/lib</outputDirectory>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -542,35 +557,35 @@
 				<artifactId>hibernate3-maven-plugin</artifactId>
 				<version>2.0</version>
 			</plugin>
-			 <plugin>  
-                <artifactId>maven-clean-plugin</artifactId>  
-                <version>2.4.1</version>  
-                <configuration>  
-                    <filesets>  
-                        <fileset>  
-                            <directory>src/main/webapp/WEB-INF/lib</directory>  
-                            <followSymlinks>false</followSymlinks>  
-                        </fileset>  
-                    </filesets>  
-                </configuration>  
-            </plugin>  
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/webapp/WEB-INF/lib</directory>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
 		</plugins>
 
-		<sourceDirectory>src/main/java</sourceDirectory>  
-        <testSourceDirectory>src/test/java</testSourceDirectory>  
-  
-        <resources>  
-            <resource>  
-                <directory>src/main/resources</directory>  
-            </resource>  
-        </resources>  
-        <testResources>  
-            <testResource>  
-                <directory>src/test/resources</directory>  
-            </testResource>  
-        </testResources>  
-  
-        <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>  
-        <testOutputDirectory>src/main/webapp/WEB-INF/classes</testOutputDirectory> 
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+
+		<outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
+		<testOutputDirectory>src/main/webapp/WEB-INF/classes</testOutputDirectory>
 	</build>
 </project>
