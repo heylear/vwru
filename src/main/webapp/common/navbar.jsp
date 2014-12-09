@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <!-- #section:basics/navbar.layout -->
 <div id="navbar" class="navbar navbar-default">
@@ -11,19 +13,20 @@
 
 	<div class="navbar-container" id="navbar-container">
 		<!-- #section:basics/sidebar.mobile.toggle -->
-		<button type="button" class="navbar-toggle menu-toggler pull-left"
+		<!-- <button type="button" class="navbar-toggle menu-toggler pull-left"
 			id="menu-toggler">
 			<span class="sr-only">Toggle sidebar</span> <span class="icon-bar"></span>
 
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
-		</button>
+		</button> -->
 
 		<!-- /section:basics/sidebar.mobile.toggle -->
 		<div class="navbar-header pull-left">
 			<!-- #section:basics/navbar.layout.brand -->
-			<a href="#" class="navbar-brand"> <small> <i
-					class="fa fa-leaf"></i> Ace Admin
-			</small>
+			<a href="#" class="navbar-brand"> <small><img
+					class="logo"
+					src="<s:url includeParams="false" value="/custom/images/logo.png"/>"
+					alt="logo" /> 经销商招募系统 </small>
 			</a>
 
 			<!-- /section:basics/navbar.layout.brand -->
@@ -38,18 +41,18 @@
 			<ul class="nav ace-nav">
 				<li class="grey"><a data-toggle="dropdown"
 					class="dropdown-toggle" href="#"> <i
-						class="ace-icon fa fa-tasks"></i> <span class="badge badge-grey">4</span>
+						class="ace-icon fa fa-tasks"></i> <span class="badge badge-grey">2</span>
 				</a>
 
 					<ul
 						class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 						<li class="dropdown-header"><i class="ace-icon fa fa-check"></i>
-							4 Tasks to complete</li>
+							目前有<span class="uncomplete">2<span>个未完成申请</li>
 
 						<li><a href="#">
 								<div class="clearfix">
-									<span class="pull-left">Software Update</span> <span
-										class="pull-right">65%</span>
+									<span class="pull-left item-desc">山东临沂销售店申请</span> <span
+										class="pull-right task-progress-rate">65%</span>
 								</div>
 
 								<div class="progress progress-mini">
@@ -59,8 +62,8 @@
 
 						<li><a href="#">
 								<div class="clearfix">
-									<span class="pull-left">Hardware Upgrade</span> <span
-										class="pull-right">35%</span>
+									<span class="pull-left task-desc">山东临沂城市展厅申请</span> <span
+										class="pull-right task-progress-rate">35%</span>
 								</div>
 
 								<div class="progress progress-mini">
@@ -68,184 +71,88 @@
 										class="progress-bar progress-bar-danger"></div>
 								</div>
 						</a></li>
-
-						<li><a href="#">
-								<div class="clearfix">
-									<span class="pull-left">Unit Testing</span> <span
-										class="pull-right">15%</span>
-								</div>
-
-								<div class="progress progress-mini">
-									<div style="width: 15%"
-										class="progress-bar progress-bar-warning"></div>
-								</div>
-						</a></li>
-
-						<li><a href="#">
-								<div class="clearfix">
-									<span class="pull-left">Bug Fixes</span> <span
-										class="pull-right">90%</span>
-								</div>
-
-								<div class="progress progress-mini progress-striped active">
-									<div style="width: 90%"
-										class="progress-bar progress-bar-success"></div>
-								</div>
-						</a></li>
-
-						<li class="dropdown-footer"><a href="#"> See tasks with
+						<!-- <li class="dropdown-footer"><a href="#"> See tasks with
 								details <i class="ace-icon fa fa-arrow-right"></i>
-						</a></li>
+						</a></li> -->
 					</ul></li>
 
 				<li class="purple"><a data-toggle="dropdown"
 					class="dropdown-toggle" href="#"> <i
 						class="ace-icon fa fa-bell icon-animated-bell"></i> <span
-						class="badge badge-important">8</span>
+						class="badge badge-important">1</span>
 				</a>
 
 					<ul
 						class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-						<li class="dropdown-header"><i
-							class="ace-icon fa fa-exclamation-triangle"></i> 8 Notifications
-						</li>
+						<li class="dropdown-header"><i class="ace-icon fa fa-check"></i>
+							目前有<span class="uncomplete">1<span>个待处理事项 </li>
 
 						<li><a href="#">
 								<div class="clearfix">
 									<span class="pull-left"> <i
-										class="btn btn-xs no-hover btn-pink fa fa-comment"></i> New
-										Comments
-									</span> <span class="pull-right badge badge-info">+12</span>
+										class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+										山东临沂易手车申请
+									</span> <span class="pull-right badge badge-info">补充材料</span>
 								</div>
 						</a></li>
 
-						<li><a href="#"> <i
-								class="btn btn-xs btn-primary fa fa-user"></i> Bob just signed
-								up as an editor ...
-						</a></li>
-
-						<li><a href="#">
-								<div class="clearfix">
-									<span class="pull-left"> <i
-										class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
-										New Orders
-									</span> <span class="pull-right badge badge-success">+8</span>
-								</div>
-						</a></li>
-
-						<li><a href="#">
-								<div class="clearfix">
-									<span class="pull-left"> <i
-										class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
-										Followers
-									</span> <span class="pull-right badge badge-info">+11</span>
-								</div>
-						</a></li>
-
-						<li class="dropdown-footer"><a href="#"> See all
+						<!-- <li class="dropdown-footer"><a href="#"> See all
 								notifications <i class="ace-icon fa fa-arrow-right"></i>
-						</a></li>
+						</a></li> -->
 					</ul></li>
 
 				<li class="green"><a data-toggle="dropdown"
 					class="dropdown-toggle" href="#"> <i
 						class="ace-icon fa fa-envelope icon-animated-vertical"></i> <span
-						class="badge badge-success">5</span>
+						class="badge badge-success">1</span>
 				</a>
 
 					<ul
 						class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 						<li class="dropdown-header"><i
-							class="ace-icon fa fa-envelope-o"></i> 5 Messages</li>
+							class="ace-icon fa fa-envelope-o"></i> 1 系统消息</li>
 
 						<li class="dropdown-content">
 							<ul class="dropdown-menu dropdown-navbar">
-								<li><a href="#"> <img
-										src="<s:url includeParams="false" value="/assets/avatars/avatar.png"/>" class="msg-photo"
-										alt="Alex's Avatar" /> <span class="msg-body"> <span
-											class="msg-title"> <span class="blue">Alex:</span>
-												Ciao sociis natoque penatibus et auctor ...
+								<li><a href="#"> <span class="msg-body"> <span
+											class="msg-title"> <span class="blue">RSSC:</span>
+												山东临沂直营店申请已通过RSSC申请...
 										</span> <span class="msg-time"> <i
-												class="ace-icon fa fa-clock-o"></i> <span>a moment
-													ago</span>
-										</span>
-									</span>
-								</a></li>
-
-								<li><a href="#"> <img
-										src="<s:url includeParams="false" value="/assets/avatars/avatar3.png"/>" class="msg-photo"
-										alt="Susan's Avatar" /> <span class="msg-body"> <span
-											class="msg-title"> <span class="blue">Susan:</span>
-												Vestibulum id ligula porta felis euismod ...
-										</span> <span class="msg-time"> <i
-												class="ace-icon fa fa-clock-o"></i> <span>20 minutes
-													ago</span>
-										</span>
-									</span>
-								</a></li>
-
-								<li><a href="#"> <img
-										src="<s:url includeParams="false" value="/assets/avatars/avatar4.png"/>" class="msg-photo"
-										alt="Bob's Avatar" /> <span class="msg-body"> <span
-											class="msg-title"> <span class="blue">Bob:</span>
-												Nullam quis risus eget urna mollis ornare ...
-										</span> <span class="msg-time"> <i
-												class="ace-icon fa fa-clock-o"></i> <span>3:15 pm</span>
-										</span>
-									</span>
-								</a></li>
-
-								<li><a href="#"> <img
-										src="<s:url includeParams="false" value="/assets/avatars/avatar2.png"/>" class="msg-photo"
-										alt="Kate's Avatar" /> <span class="msg-body"> <span
-											class="msg-title"> <span class="blue">Kate:</span>
-												Ciao sociis natoque eget urna mollis ornare ...
-										</span> <span class="msg-time"> <i
-												class="ace-icon fa fa-clock-o"></i> <span>1:33 pm</span>
-										</span>
-									</span>
-								</a></li>
-
-								<li><a href="#"> <img
-										src="<s:url includeParams="false" value="/assets/avatars/avatar5.png"/>" class="msg-photo"
-										alt="Fred's Avatar" /> <span class="msg-body"> <span
-											class="msg-title"> <span class="blue">Fred:</span>
-												Vestibulum id penatibus et auctor ...
-										</span> <span class="msg-time"> <i
-												class="ace-icon fa fa-clock-o"></i> <span>10:09 am</span>
+												class="ace-icon fa fa-clock-o"></i> <span>1 小时前</span>
 										</span>
 									</span>
 								</a></li>
 							</ul>
 						</li>
 
-						<li class="dropdown-footer"><a href="inbox.html"> See all
+						<!-- <li class="dropdown-footer"><a href="inbox.html"> See all
 								messages <i class="ace-icon fa fa-arrow-right"></i>
-						</a></li>
+						</a></li> -->
 					</ul></li>
 
 				<!-- #section:basics/navbar.user_menu -->
 				<li class="light-blue"><a data-toggle="dropdown" href="#"
 					class="dropdown-toggle"> <img class="nav-user-photo"
-						src="<s:url includeParams="false" value="/assets/avatars/user.jpg"/>" alt="Jason's Photo" /> <span
-						class="user-info"> <small>Welcome,</small> Jason
+						src="<s:url includeParams="false" value="/assets/avatars/user.jpg"/>"
+						alt="Jason's Photo" /> <span class="user-info"> <small>上午好,</small>
+							管理员
 					</span> <i class="ace-icon fa fa-caret-down"></i>
 				</a>
 
 					<ul
 						class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 						<li><a href="#"> <i class="ace-icon fa fa-cog"></i>
-								Settings
+								设置
 						</a></li>
 
 						<li><a href="profile.html"> <i
-								class="ace-icon fa fa-user"></i> Profile
+								class="ace-icon fa fa-user"></i> 个人中心
 						</a></li>
 
 						<li class="divider"></li>
 
 						<li><a href="#"> <i class="ace-icon fa fa-power-off"></i>
-								Logout
+								注销
 						</a></li>
 					</ul></li>
 

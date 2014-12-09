@@ -33,19 +33,6 @@
 <script
 	src="<s:url includeParams="false" value="/assets/js/ace.min.js"/>"></script>
 
-<!-- inline scripts related to this page -->
-<link rel="stylesheet"
-	href="<s:url includeParams="false" value="/assets/css/ace.onpage-help.css"/>" />
-<link rel="stylesheet" href="../docs/assets/js/themes/sunburst.css" />
-
 <script type="text/javascript">
-	ace.vars['base'] = '..';
+	ace.vars['base'] = '/vwru/';
 </script>
-
-<script
-	src="<s:url includeParams="false" value="/assets/js/ace/ace.onpage-help.js"/>"></script>
-<script src="../docs/assets/js/rainbow.js"></script>
-<script src="../docs/assets/js/language/generic.js"></script>
-<script src="../docs/assets/js/language/html.js"></script>
-<script src="../docs/assets/js/language/css.js"></script>
-<script src="../docs/assets/js/language/javascript.js"></script>
