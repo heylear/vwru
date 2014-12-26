@@ -11,4 +11,5 @@
 		</action>
 	</package>
 	
+	<include file="xwork/config-support.xml" />
 </xwork>

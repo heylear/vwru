@@ -26,13 +26,14 @@
 	src="<s:url includeParams="false" value="/assets/js/bootstrap.min.js"/>"></script>
 
 <!-- page specific plugin scripts -->
-
+<script src="<s:url includeParams="false" value="/assets/js/date-time/bootstrap-datepicker.min.js"/>"></script>
+<script src="<s:url includeParams="false" value="/assets/js/jqGrid/jquery.jqGrid.min.js"/>"></script>
+<script src="<s:url includeParams="false" value="/assets/js/jqGrid/i18n/grid.locale-cn.js"/>"></script>
+<!-- <script src="../assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+		<script src="../assets/js/jqGrid/i18n/grid.locale-en.js"></script> -->
 <!-- ace scripts -->
 <script
 	src="<s:url includeParams="false" value="/assets/js/ace-elements.min.js"/>"></script>
 <script
 	src="<s:url includeParams="false" value="/assets/js/ace.min.js"/>"></script>
-
-<script type="text/javascript">
-	ace.vars['base'] = '/vwru/';
-</script>

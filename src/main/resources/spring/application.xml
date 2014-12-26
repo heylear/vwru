@@ -28,24 +28,15 @@
 			</map>
 		</property>
 	</bean>
-	
+
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="${jndi}"/>
+		<property name="jndiName" value="${jndi}" />
 	</bean>
-	
-	<!-- <bean id="dataLoader" class="com.fzy.core.DataLoader">
-		<property name="dataSource" ref="dataSource"/>
- 		<property name="scripts">
-			<list>
- 				<value>classpath:sql/init-data.sql</value>
-			</list>
-		</property>
-	</bean> -->
-	
+
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -107,6 +98,36 @@
 			</list>
 		</property>
 	</bean>
-	
+
+	<bean id="dataLoader" class="com.myallways.vwru2.core.support.DataLoader"
+		lazy-init="false">
+		<property name="dataSource" ref="dataSource" />
+		<property name="scripts">
+			<list>
+				<value>classpath:db/init-data.sql</value>
+			</list>
+		</property>
+	</bean>
+
 	<bean class="com.myallways.vwru2.core.SpringHolder" lazy-init="false" />
+
+	<bean id="defaultService" class="com.myallways.vwru2.core.service.DefaultService" />
+
+	<bean id="containerService" class="com.myallways.vwru2.core.service.DataContainerService" />
+
+	<bean id="setContainerService"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
+		lazy-init="false">
+		<property name="targetClass"
+			value="com.myallways.vwru2.core.support.DataContainer" />
+		<property name="targetMethod" value="setContainerService" />	
+		<property name="arguments" ref="containerService" />
+	</bean>
+
+	<bean id="dataContainer" class="com.myallways.vwru2.core.support.DataContainer"
+		init-method="refresh" lazy-init="false" />
+
+	<bean id="dashboard" class="com.myallways.vwru2.other.web.DashboardAction"
+		singleton="false" />
+
 </beans>

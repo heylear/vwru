@@ -15,6 +15,9 @@
 <link rel="stylesheet" href="<s:url includeParams="false" value="/assets/css/font-awesome.min.css"/>" />
 
 <!-- page specific plugin styles -->
+<link rel="stylesheet" href="<s:url includeParams="false" value="/assets/css/jquery-ui.min.css"/>" />
+<link rel="stylesheet" href="<s:url includeParams="false" value="/assets/css/datepicker.css"/>" />
+<link rel="stylesheet" href="<s:url includeParams="false" value="/assets/css/ui.jqgrid.css"/>" />
 
 <!-- text fonts -->
 <link rel="stylesheet" href="<s:url includeParams="false" value="/assets/css/ace-fonts.css"/>" />

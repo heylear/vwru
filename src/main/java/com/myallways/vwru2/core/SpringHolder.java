@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2005-2010 springside.org.cn
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * 
+ * $Id: SpringContextHolder.java 1211 2010-09-10 16:20:45Z calvinxiu $
+ */
 package com.myallways.vwru2.core;
 
 import java.util.Map;
@@ -7,6 +14,11 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+/**
+ * ä»¥é™æ€å˜é‡ä¿å­˜Spring ApplicationContext, å¯åœ¨ä»»ä½•ä»£ç ä»»ä½•åœ°æ–¹ä»»ä½•æ—¶å€™ä¸­å–å‡ºApplicaitonContext.
+ * 
+ * @author calvin
+ */
 public class SpringHolder implements ApplicationContextAware, DisposableBean {
 
 	private static ApplicationContext applicationContext = null;
@@ -14,29 +26,28 @@ public class SpringHolder implements ApplicationContextAware, DisposableBean {
 	private static Logger log = Logger.getLogger(SpringHolder.class);
 
 	/**
-	 * ÊµÏÖApplicationContextAware½Ó¿Ú, ×¢ÈëContextµ½¾²Ì¬±äÁ¿ÖĞ.
+	 * å®ç°ApplicationContextAwareæ¥å£, æ³¨å…¥Contextåˆ°é™æ€å˜é‡ä¸­.
 	 */
 	public void setApplicationContext(ApplicationContext applicationContext) {
-		log.debug("==============> inject ApplicationContext into SpringHolder:"
-				+ applicationContext);
+		log.debug("==============> inject ApplicationContext into SpringContextHolder:" + applicationContext);
 
 		if (SpringHolder.applicationContext != null) {
-			log.warn("SpringHolderÖĞµÄApplicationContext±»¸²¸Ç, Ô­ÓĞApplicationContextÎª:"
+			log.warn("SpringContextHolderä¸­çš„ApplicationContextè¢«è¦†ç›–, åŸæœ‰ApplicationContextä¸º:"
 					+ SpringHolder.applicationContext);
 		}
 
-		SpringHolder.applicationContext = applicationContext; // NOSONAR
+		SpringHolder.applicationContext = applicationContext; //NOSONAR
 	}
 
 	/**
-	 * ÊµÏÖDisposableBean½Ó¿Ú,ÔÚContext¹Ø±ÕÊ±ÇåÀí¾²Ì¬±äÁ¿.
+	 * å®ç°DisposableBeanæ¥å£,åœ¨Contextå…³é—­æ—¶æ¸…ç†é™æ€å˜é‡.
 	 */
 	public void destroy() throws Exception {
 		SpringHolder.clear();
 	}
 
 	/**
-	 * È¡µÃ´æ´¢ÔÚ¾²Ì¬±äÁ¿ÖĞµÄApplicationContext.
+	 * å–å¾—å­˜å‚¨åœ¨é™æ€å˜é‡ä¸­çš„ApplicationContext.
 	 */
 	public static ApplicationContext getApplicationContext() {
 		assertContextInjected();
@@ -44,7 +55,7 @@ public class SpringHolder implements ApplicationContextAware, DisposableBean {
 	}
 
 	/**
-	 * ´Ó¾²Ì¬±äÁ¿applicationContextÖĞÈ¡µÃBean, ×Ô¶¯×ªĞÍÎªËù¸³Öµ¶ÔÏóµÄÀàĞÍ.
+	 * ä»é™æ€å˜é‡applicationContextä¸­å–å¾—Bean, è‡ªåŠ¨è½¬å‹ä¸ºæ‰€èµ‹å€¼å¯¹è±¡çš„ç±»å‹.
 	 */
 	public static Object getBean(String name) {
 		assertContextInjected();
@@ -52,7 +63,7 @@ public class SpringHolder implements ApplicationContextAware, DisposableBean {
 	}
 
 	/**
-	 * ´Ó¾²Ì¬±äÁ¿applicationContextÖĞÈ¡µÃBean, ×Ô¶¯×ªĞÍÎªËù¸³Öµ¶ÔÏóµÄÀàĞÍ.
+	 * ä»é™æ€å˜é‡applicationContextä¸­å–å¾—Bean, è‡ªåŠ¨è½¬å‹ä¸ºæ‰€èµ‹å€¼å¯¹è±¡çš„ç±»å‹.
 	 */
 	public static Map getBean(Class requiredType) {
 		assertContextInjected();
@@ -60,21 +71,19 @@ public class SpringHolder implements ApplicationContextAware, DisposableBean {
 	}
 
 	/**
-	 * Çå³ıSpringHolderÖĞµÄApplicationContextÎªNull.
+	 * æ¸…é™¤SpringContextHolderä¸­çš„ApplicationContextä¸ºNull.
 	 */
 	public static void clear() {
-		log.debug("Çå³ıSpringHolderÖĞµÄApplicationContext:"
-				+ applicationContext);
+		log.debug("æ¸…é™¤SpringContextHolderä¸­çš„ApplicationContext:" + applicationContext);
 		applicationContext = null;
 	}
 
 	/**
-	 * ¼ì²éApplicationContext²»Îª¿Õ.
+	 * æ£€æŸ¥ApplicationContextä¸ä¸ºç©º.
 	 */
 	private static void assertContextInjected() {
 		if (applicationContext == null) {
-			throw new IllegalStateException(
-					"applicaitonContextÎ´×¢Èë,ÇëÔÚapplicationContext.xmlÖĞ¶¨ÒåSpringHolder");
+			throw new IllegalStateException("applicaitonContextæœªæ³¨å…¥,è¯·åœ¨applicationContext.xmlä¸­å®šä¹‰SpringContextHolder");
 		}
 	}
 }

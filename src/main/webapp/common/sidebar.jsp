@@ -215,7 +215,7 @@
 
 		<li class=""><a href="javascript:void(0)" class="dropdown-toggle">
 				<i class="menu-icon fa fa-tag"></i> <span class="menu-text">
-					系统 </span> <b class="arrow fa fa-angle-down"></b>
+					系统管理 </span> <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 			<ul class="submenu">
 				<li class=""><a
@@ -230,10 +230,16 @@
 					href="<s:url includeParams="false" value="/console/support/profile/"/>">
 						<i class="menu-icon fa fa-caret-right"></i> 个人中心
 				</a> <b class="arrow"></b></li>
-				<li class=""><a
-					href="<s:url includeParams="false" value="/console/support/settings/"/>">
-						<i class="menu-icon fa fa-caret-right"></i> 系统设置
-				</a> <b class="arrow"></b></li>
+				<li class=""><a href="javascript:void(0)"
+					class="dropdown-toggle"> <i class="menu-icon fa fa-caret-right"></i>
+						模块管理 <b class="arrow fa fa-angle-down"></b>
+				</a> <b class="arrow"></b>
+					<ul class="submenu">
+						<li class=""><a
+							href="<s:url includeParams="false" value="/console/support/menu/"/>">
+								<i class="menu-icon fa fa-caret-right"></i> 菜单管理
+						</a> <b class="arrow"></b></li>
+					</ul></li>
 			</ul></li>
 
 		<li class=""><a
