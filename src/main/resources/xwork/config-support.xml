@@ -1,0 +1,9 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>	
+	<package name="support" namespace="/console/support" extends="webwork-default">
+		<action name="menu" class="menumanager">
+			<result name="success" type="dispatcher">/WEB-INF/jsp/support/menu.jsp</result>
+		</action>
+	</package>	
+</xwork>
