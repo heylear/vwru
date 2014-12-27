@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.core.JdkVersion;
 import org.springframework.core.io.Resource;
 
 public class DataLoader implements InitializingBean {
@@ -96,6 +97,7 @@ public class DataLoader implements InitializingBean {
 	}
 
 	public void afterPropertiesSet() throws Exception {
+		log.info("current jdkversion: " + JdkVersion.getJavaVersion());
 		executeResource();
 		destroy();
 	}
