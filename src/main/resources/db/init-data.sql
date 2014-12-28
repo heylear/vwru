@@ -1,14 +1,42 @@
 drop table ru_new_sys_user;
 
 create table ru_new_sys_user(
-	vusername varchar2(32),
-	vpassword varchar2(32),
-	vempname varchar2(32)
+	nuserid number not null,
+	vusername varchar2(32) not null,
+	vpassword varchar2(32) not null,
+	vempname varchar2(32),
+	vstatus varchar2(2) not null default '1',
+	vcreated varchar2(10) not null,
+	dcrt_date date not null,
+	vupdated varchar2(10),
+	dup_date date
 );
 
-insert into ru_new_sys_user(vusername, vpassword, vempname) values('zhangsan', '11111', '张三');
+alter table ru_new_sys_user add constraint pk_ru_sys_user primary key(nuserid);
 
-insert into ru_new_sys_user(vusername, vpassword, vempname) values('admin', 'admin', '管理员');
+drop sequence seq_ru_sys_user;
+
+create sequence seq_ru_sys_user start with 10000;
+
+comment on table ru_new_sys_user is '系统用户主表';
+
+comment on column ru_new_sys_user.nuserid is '用户ID,唯一标识<seq:seq_ru_sys_user>';
+
+comment on column ru_new_sys_user.vusername is '用户名';
+
+comment on column ru_new_sys_user.vpassword is '密码';
+
+comment on column ru_new_sys_user.vempname is '雇员名称';
+
+comment on column ru_new_sys_user.vstatus is '帐号状态:1:有效,0:无效,2:被禁用';
+
+comment on column ru_new_sys_user.vcreated is '创建人';
+
+comment on column ru_new_sys_user.dcrt_date is '创建日期';
+
+comment on column ru_new_sys_user.vupdated is '更新人';
+
+comment on column ru_new_sys_user.dup_date is '更新日期';
 
 drop table ru_new_sys_menu;
 

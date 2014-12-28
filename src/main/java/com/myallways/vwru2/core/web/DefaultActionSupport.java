@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.util.StringUtils;
 
 import com.myallways.vwru2.core.Constants;
+import com.myallways.vwru2.core.common.Page;
 import com.opensymphony.webwork.interceptor.ServletRequestAware;
 import com.opensymphony.webwork.interceptor.ServletResponseAware;
 import com.opensymphony.xwork.ActionSupport;
@@ -39,7 +40,9 @@ public class DefaultActionSupport extends ActionSupport implements
 
 	protected static final String CONTENT_TYPE_MS_PDF = "application/pdf";
 
-	private String param;
+	protected String param;
+	
+	protected Page page;
 
 	protected void render() {
 		render(CONTENT_DEFAULT_ENCODING);
@@ -113,6 +116,14 @@ public class DefaultActionSupport extends ActionSupport implements
 
 	public void setParam(String param) {
 		this.param = param;
+	}
+
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
 	}
 
 }
