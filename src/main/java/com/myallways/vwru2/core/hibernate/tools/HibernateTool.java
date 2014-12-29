@@ -1,5 +1,6 @@
 package com.myallways.vwru2.core.hibernate.tools;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -9,10 +10,14 @@ import java.util.Map;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.myallways.vwru2.core.hibernate.pojo.Entity;
+import com.myallways.vwru2.core.util.StringUtils;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
 public abstract class HibernateTool {
+	private static final String JAVA_EXTENSION = ".java";
 	private JdbcTemplate jdbcTemplate;
 
 	protected List loadColumnEntities() {
@@ -35,8 +40,20 @@ public abstract class HibernateTool {
 		conf.setDefaultEncoding("UTF-8");
 		conf.setClassForTemplateLoading(this.getClass(), "../../../../../../");
 		Map root = new HashedMap();
-		root.put("entity", getModel());
-		getTemplate(conf).process(root, new OutputStreamWriter(new FileOutputStream("E:\\out\\result.java")));
+		Entity entity = (Entity) getModel();
+		root.put("entity", entity);
+		File file = new File(System.getProperty("src.path")
+				+ StringUtils.replace(entity.getPackageDeclaration(), ".",
+						File.separator));
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		getTemplate(conf).process(
+				root,
+				new OutputStreamWriter(new FileOutputStream(file
+						.getAbsolutePath()
+						+ File.separator
+						+ entity.getDeclarationName() + JAVA_EXTENSION)));
 	}
 
 	public abstract Object getModel();

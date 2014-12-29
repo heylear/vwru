@@ -13,8 +13,8 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 
 public class DDL2ClassTool extends HibernateTool {
-	private static final String POJO_TEMPLATE = "ftl/Entity.ftl";
-	String tableName = "ru_new_sys_menu";
+	private static final String POJO_TEMPLATE = "entity/Entity.ftl";
+	String tableName = "ru_new_sys_user";
 	String prefix = "ru_new";
 	String suffix = StringUtils.EMPTY;
 	String packageName = "com.myallways.vwru2.hibernate.maps";

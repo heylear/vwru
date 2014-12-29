@@ -25,6 +25,7 @@
 		<property name="arguments">
 			<map>
 				<entry key="app.path" value="${app.path}" />
+				<entry key="src.path" value="${src.path}" />
 			</map>
 		</property>
 	</bean>
