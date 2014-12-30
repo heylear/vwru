@@ -53,7 +53,8 @@ public abstract class HibernateTool {
 				new OutputStreamWriter(new FileOutputStream(file
 						.getAbsolutePath()
 						+ File.separator
-						+ entity.getDeclarationName() + JAVA_EXTENSION)));
+						+ entity.getDeclarationName() + JAVA_EXTENSION), conf
+						.getDefaultEncoding()));
 	}
 
 	public abstract Object getModel();

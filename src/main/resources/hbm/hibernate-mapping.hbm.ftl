@@ -2,7 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping default-lazy="false">
 
+</hibernate-mapping>
 <!-- Generated ${date} by Hibernate Tools ${version} -->
 <#if hmgs?exists && hmgs.hasNonDefaultSettings()>
 <hibernate-mapping
